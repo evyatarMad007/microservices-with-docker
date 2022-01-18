@@ -1,0 +1,33 @@
+// utils
+@import 'utils/fonts';
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/animation';
+
+
+// base
+@import 'base/reset';
+@import 'base/base';
+@import 'base/global';
+
+// components 
+@import 'components/header';
+@import 'components/main';
+@import 'components/footer';
+@import 'components/language-button';
+@import 'components/user-inquiry';
+
+
+// screens
+@import 'screens/sign-up-screen';
+@import 'screens/sign-in-screen';
+@import 'screens/view-employees-screen';
+@import 'screens/add-employee';
+@import 'screens/edit-employee';
+@import 'screens/admin-panel';
+@import 'screens/forgot-password';
+@import 'screens/reset-password';
+
+
+// lib 
+@import 'vendors/toastify';

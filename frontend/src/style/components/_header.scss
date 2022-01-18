@@ -1,0 +1,319 @@
+.header {
+    height: 7rem;
+    background-color: $header-background;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.164);
+    z-index: 150;
+    position: sticky;
+    top: 0;
+
+    & > :nth-child(n) {
+        height: 100%;
+        min-width: 18rem;
+        margin: 0 5rem;
+    }
+
+    // left side 
+    &__logo-cnt  {
+        .logo-img {
+            height: 100%;
+            display: block;
+        }
+        .arrow-icon {
+            display: none;
+        }
+        
+    }
+
+    // right side 
+    &__profile-cnt {
+        // background-color: rgba(255, 0, 0, 0.425);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & > :nth-child(n) {
+            height: 100%;
+        }
+    }
+
+    .admin-panel-link {
+        // flex-grow: 1;
+    // background: red;
+    // justify-self: ;
+    justify-content: flex-start;
+    cursor: default;
+
+    .link {
+        background-color: rgb(233, 233, 233);
+        height: 32px;
+        width: 32px;
+        border-radius: 5px;
+        margin: 0 1.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.7rem;
+        color: silver;
+        cursor: pointer;
+
+        &:hover {
+            color: #a1a1a1;
+        }
+        
+    }
+    
+    .none {
+        background: none;
+        cursor: default;
+    }
+
+    }
+
+    // box-1 
+    &__profile-btn {
+        // background-color: rgb(0, 81, 255);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 0 0.5rem;
+    }
+    &__user-img {
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 0.5rem 0 0;
+    }
+    &__user-default-img {
+        background-color: $controller-v1;
+        color: $text-color-v3;
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        margin: 0 0.5rem 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        font-family: "roboto-regular";
+    }
+
+    &__user-name {
+        font-size: 1.3rem;
+        font-family: 'Rubik-medium';
+        color: $text-color-v2;
+    }
+
+    // box-2
+    &__logout {
+        // background-color: rgb(24, 136, 84);
+        padding-left: 2rem;
+        color: $text-color-v2;
+        font-size: 1.7rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+
+    // when user is login 
+    &__navbar {
+        // background-color: rgba(255, 0, 0, 0.219);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: clamp(1rem, 5vw ,5rem);
+
+        &  >:nth-child(n) {
+            height: max-content;
+            width: max-content;
+            padding: 0.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        
+        &  >:last-child {
+            margin-left: 1rem;
+        }
+    }
+    &__link {
+        // color: lime;
+        font-size: 1.5rem;
+        text-decoration: none;
+
+        &:active {
+            color: black;
+        }
+    }
+
+    &__navbar-signin {
+        .header__link {
+            color: $controller-v2;
+        }
+    }
+    &__navbar-signup {
+        border-radius: 8px;
+        background-color: $controller-v1;
+        
+        .header__link {
+            color: $text-color-v3;
+        }
+        &:active {
+            background-color: $controller-v2;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .header {
+        
+
+        & > :nth-child(n) {
+            min-width: max-content;
+            margin: 0;
+            // background-color: rgb(0, 255, 34);
+        }
+
+        &__logo-cnt  {
+            display: flex;
+            align-items: center;
+            .link {
+                height: clamp(70%, 11vw, 85%);
+            }
+        }
+
+        &__profile-btn {
+            padding: 0;
+        }
+        &__user-img {
+            height: 40px;
+            width: 40px;
+            margin: 0.5rem 0.5rem 0 0;
+        }
+        &__user-name {
+            font-size: 1.3rem;
+            margin: 0.5rem 0 0 0;
+        }
+        &__logout {
+            margin: -0.4rem 0 0 0;
+            padding-left: 1.2rem;
+            font-size: 1.5rem;
+            margin-right: 1.2rem;
+        }
+    }
+}
+@media (max-width: $mobile-breakpoint) {
+    .header {
+        position: absolute;
+        width: 100%;
+        background-color: unset;
+        background: unset;
+        border: none;
+        box-shadow: unset;
+        justify-content: center;
+        align-items: center;
+        height: 5.5rem;
+        padding: 0;
+
+        // absolute style 
+        &__logo-cnt  {
+            width: $form-width_mobile;
+            max-width: $form-max-width_mobile;
+            font-size: 2.1rem;
+            position: absolute;
+            top: 5.5rem;
+            left: 10%;
+            height: max-content !important;
+            align-items: center;
+            width: max-content;
+
+            .link {
+                text-decoration: none;
+                height: max-content;
+            }
+            .arrow-icon {
+                display: block;
+                color: $text-color-v5;
+                // background-color: lime;
+                margin: 0;
+            }
+            .logo-img {
+                display: none;
+            }
+            
+        }
+
+        // right side 
+        &__profile-cnt {
+            height: 80%;
+            max-height: 80%;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 55;
+            // background-color: lime;
+            opacity: 1;
+            transition: all 0.6s;
+
+            .header__profile-btn {
+                // background-color: silver;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                .header__user-default-img {
+                    margin: 0 5px 0 0;
+                    font-size: 1.2rem;
+                    width: 30px;
+                    height: 30px;
+                    padding: 0;
+                }
+                .header__user-name {
+                    font-size: 1.3rem;
+                    transform: translateY(-2px);
+                    span {
+                        margin: 0 1px;
+                    }
+                }
+            }
+        }
+
+        // box-2
+        &__logout {
+            color: $text-color-v5;
+            font-size: 1.4rem;
+        }
+
+        .admin-panel-link {
+            height: max-content;
+            width: max-content;
+            justify-content: flex-start;
+            // background-color: red;
+        
+            .link {
+                background-color: rgba(233, 233, 233, 0);
+                height: 25px;
+                width: 25px;
+                border-radius: 5px;
+                margin: 0 1.7rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.3rem;
+                color: silver;
+        
+                &:hover {
+                    color: #a1a1a1;
+                }
+            }
+        }
+
+    }
+}

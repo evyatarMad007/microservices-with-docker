@@ -1,0 +1,127 @@
+.admin-panel {
+    @include sign-page(7rem);
+    @include page-header;
+    @include fade-in-animation;
+    
+    .lang-btn {
+        margin-top: 9rem;
+    }
+
+    &__form {
+        @include box-style;
+        @include input-style;
+        @include button-submit-style(flex-start);
+        @include form-design(8.4rem);  
+        
+        .group-title {
+            width: $form-width;
+            font-size: 1.7rem;
+            margin: 0 0 0.6rem 0;
+        }
+
+        .person-img-box {
+            .person-img {
+                height: 100%
+            }
+            &::before {
+                content: "🔧";
+                font-size: 1.5rem
+            }
+
+        }
+    }
+    @include user-inquiry(7rem,17rem);
+
+    .password-match-error {
+    color: red;
+    font-size: 1.4rem;
+    position: absolute;
+    }
+    
+}
+.admin-panel-he {
+    direction: rtl;
+    
+    & *:not(i) {
+        font-family: arial !important;
+    }
+
+    .page-header {
+        font-weight: bold;
+    }
+
+    .lang-btn-wrapper .lang-btn__select-box {
+        background-position-x: 15%
+    }
+    .admin-panel__form .input-wrapper .show-password {
+        left: 0;
+        right: unset
+    }
+
+
+}
+
+//  Mobile devices mode.
+@media (max-width: $mobile-breakpoint) {
+    .admin-panel {
+        @include sign-page(0);
+        @include page-header(3.2rem, left);
+        padding-top: 10.7rem;
+
+        &__form {
+            margin-top: 11rem;
+            justify-content: flex-start;
+            padding-top: 6.2rem;
+            @include input-style($width: $form-width_mobile);
+            min-height: 270px;
+            .group-title {
+                width:  $form-width_mobile;
+                font-size: 1.4rem;
+                margin-top: 2.4rem;
+            }
+            .button-wrapper {
+                width:  $form-width_mobile;
+                margin-top: 1rem;
+                padding: 0;
+                height: 5rem;
+                // background-color: red;
+
+                .submit {
+                    height: 100%;
+                    margin: 0;
+                    font-size: 1.4rem;
+                    padding: 0 1.5rem;
+                    border-radius: 8px;
+                }
+                .password-match-error {
+                    transform: translateY(50px);
+                    background: skyblue;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            .link-forgot-pass {
+                position: static;
+                bottom: 0;
+                padding: 0;
+            }
+        }
+    } 
+    .admin-panel-he {
+        .page-header {
+            text-align: center !important;
+        }
+        .lang-btn-wrapper {
+            justify-content: flex-start;
+            // background-color: red;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: 90%;
+        } 
+    }
+    .error-valid {
+        transform: translateY(8px);
+    }
+    
+}

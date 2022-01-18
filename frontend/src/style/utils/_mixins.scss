@@ -1,0 +1,306 @@
+@mixin box-style {
+    background-color: $text-color-v3;
+    border: 0.5px solid $text-color-transparent;
+}
+
+@mixin input-style($width: $form-width, $margin: 0.8rem, $opacity: 1) {
+    .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 5.2rem;
+        width: $width;
+        margin: $margin;
+        background: rgb(255, 255, 255);
+        position: relative;
+
+
+        label {
+            color: $controller-v1;
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-family: 'roboto-regular';
+            background: rgb(255, 255, 255);
+            cursor: pointer;
+            width: max-content;
+            z-index: 2;
+            transition: ease-in-out 0.1s;
+            opacity: 1;
+        }
+
+        .label-focus {
+            color: $text-color-v4;
+            font-size: 1.45rem;
+            font-weight: 500;
+            font-family: 'roboto-regular';
+            // background: rgba(255, 255, 255, 0);
+            transform: translate(0px, 20px);
+            opacity: $opacity;
+        }
+
+        input,select {
+            height: 4rem;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0);
+            padding-bottom: 1rem;
+            border-bottom: 0.5px solid $text-color-v4;
+            font-size: 1.6rem;
+            z-index: 3;
+        }
+
+        select {
+            font-size: 1.4rem;
+        }
+        
+        .show-password {
+            position: absolute;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: max-content;
+            padding: 0 1rem;
+            height: 100%;
+            cursor: pointer;
+            z-index: 10;
+
+            i {
+                padding-top: 1rem;
+                font-size: 1.6rem;
+            }
+        }
+
+        .error-valid {
+            color: red;
+            position: absolute;
+            bottom: -14px;
+            z-index: 5;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+    }
+    @media (max-width: $mobile-breakpoint) {
+       
+        .input-wrapper {
+            height: 5rem;
+            .label-focus {
+                color: $text-color-v5;
+                font-weight: lighter;
+            }
+            // input,select {}
+            input {
+                padding-bottom: 0;
+                transform: translateY(-6px);
+            }
+            .error-valid {
+                bottom: -5.5px;
+                line-height: 1;
+                font-size: 1rem;
+            }
+        }  
+    }
+}
+
+@mixin button-submit-style($btn-position,$width: $form-width, $pd: 0.9rem 5.1rem) {
+    .button-wrapper {
+        width: $width;
+        display: flex;
+        justify-content: $btn-position;
+        .button, .submit {
+            width: max-content;
+            height: max-content;
+            padding: $pd;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            margin-top: 2rem;
+            font-weight: lighter;
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: $text-color-v3;
+            background-color: $controller-v1;
+            font-family: 'roboto-regular';
+            cursor: pointer;
+            transition: all 0s;
+    
+            &:hover {
+                opacity: 0.95;
+            }
+    
+            &:active {
+                background-color: $controller-v2;
+            }
+        }
+        .submit:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+    }
+    
+}
+
+@mixin page-header($fontSize: 3.25rem, $position: center) {
+    .page-header {
+    font-size: $fontSize;
+    font-family: 'roboto-bold';
+    color: $text-color-v2;
+    width: 100%;
+    text-align: $position;
+    }
+    @media (max-width: $mobile-breakpoint) {
+        .page-header {
+            margin: 0 auto;
+            width: $form-width-mobile; 
+        }
+    } 
+}
+
+@mixin sign-page($mt) {
+    width: $width-sections;
+    max-width: $max-width-sections;
+    margin: 0 auto;
+    margin-top: $mt;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@mixin form-design($pt, $maxWidth: $form-max-width) {
+    min-height: 350px;
+    width: 100%;
+    margin: 15px auto 0 auto;
+    padding-top: $pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: $maxWidth;
+
+    .person-img-box {
+        position: absolute;
+        top: -6rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 12rem;
+        height: 12rem;
+        background-color: #EDF1F7;
+        border-radius: 50%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+
+        &::before {
+            content: "+";
+            position: absolute;
+            bottom: 0;
+            right: 0.8rem;
+            background-color: $controller-v1;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            font-size: 2rem;
+            color: $text-color-v3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .link-forgot-pass {
+        color: $controller-v1;
+        font-size: 1.45rem;
+        position: absolute;
+        bottom: 2rem;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+        .person-img-box {
+            width: 10.5rem;
+            height: 10.5rem;
+            top: -5rem;
+
+            &::before { 
+                width: 2rem;
+                height: 2rem;
+                font-size: 1.5rem;
+                bottom: 0.25rem;
+                right: 0.8rem;
+            }
+           .person-img {
+               height: 90%;
+           }
+        }
+        .link-forgot-pass {}
+    }   
+}
+
+@mixin screen-size {
+    width: 95%;
+    max-width: 1185px;
+    margin: 0 auto;
+}
+@mixin table-row-col {
+    @include box-style;
+    display: flex;
+    align-items: center;
+
+    [class*="first-name"],
+    [class*="last-name"],
+    [class*="phone"],
+    [class*="adress"],
+    [class*="roll"],
+    [class*="start-date"] {
+        // background-color: rgb(0, 110, 255) !important;
+        // border: 1px solid black;
+    }
+
+
+        [class~="first-name"],
+        [class~="last-name"],
+        [class~="phone"],
+        [class~="adress"],
+        [class~="roll"],
+        [class~="start-date"] {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            // padding-right: 1%;
+        }
+    
+    [class*="first-name"] { width: 20%; }
+    [class*="last-name"] { width: 13%; }
+    [class*="phone"] { width: 15%;  }
+    [class*="adress"] { width: 20%; }
+    [class*="roll"] { width: 10%; }
+
+    // only title (because the scroll )
+    .start-date-title { width: 22%; margin-right: $employee-scrollBar-width; }
+    // only section 
+    .start-date { width: 22%; }
+}
+
+@mixin custom-scroll {
+        &::-webkit-scrollbar {
+        width: $employee-scrollBar-width;
+        
+      }
+      
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f100; 
+      }
+       
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: rgb(192, 192, 192); 
+        border-radius: 150px;
+      }
+      
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgb(168, 168, 168); 
+      }
+      &::-webkit-scrollbar-thumb:active {
+        background: #888; 
+      }
+}

@@ -1,0 +1,16 @@
+@mixin fade-in-animation {
+    
+    animation: fade-in-animation-page 0.30s ease-in-out;
+    @keyframes fade-in-animation-page {
+        0% {
+            opacity: 0;
+            transform: translateY(-1rem);
+        }
+        50% {
+            transform: translateY(0rem);
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}

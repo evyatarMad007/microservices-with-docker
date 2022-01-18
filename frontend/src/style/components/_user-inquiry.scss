@@ -1,0 +1,14 @@
+@mixin user-inquiry($mt,$mb) {
+    .user-inquiry {
+        width: 100%;
+        text-align: center;
+        margin-top: $mt;
+        margin-bottom: $mb;
+        font-size: clamp(1.45rem, 2.5vw, 1.75rem);
+        color: $text-color-v2;
+        .link {
+            text-decoration: none;
+            color: $controller-v1;
+        }
+    }
+}

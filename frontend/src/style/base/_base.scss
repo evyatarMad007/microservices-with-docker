@@ -1,0 +1,33 @@
+body {
+    background-color: $website-background;
+    min-height: 100vh;
+}
+
+@media (max-width: $mobile-breakpoint) {
+body {
+/* width */
+&::-webkit-scrollbar {
+    width: 8px;
+    
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: rgb(172, 172, 172); 
+    border-radius: 150px;
+  }
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(184, 184, 184); 
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background: rgb(148, 148, 148); 
+  }
+}
+ }
